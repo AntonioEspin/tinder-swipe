@@ -101,6 +101,16 @@ footer {
   height: 100%;
   margin: 0 auto;
 
+  & > span {
+    display: grid;
+    place-content: center;
+    color: #777;
+    font-size: 14px;
+    text-align: center;
+    height: 100%;
+    z-index: -1;
+  }
+
   & article {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -112,25 +122,70 @@ footer {
     height: 100%;
     z-index: 2;
     will-change: transform rotate;
-  }
 
-  & img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+      & .choice {
+        border-radius: 8px;
+        color: black;
+        border: 3px solid;
+        z-index: 999;
+        position: absolute;
+        top:32px;
+        right: 16px;
+        padding: 4px 8px;
+        font-size: 24px;
+        font-weight: bold;
+        width: fit-content;
+        opacity: 0;
+      }
+      
+      & .nope {
+        border-color: #f44336;
+        color: #f44336;
+        transform: rotate(30deg);
+      }
+      
+      & .like {
+        left: 16px;
+        border-color: #4caf50;
+        color: #4caf50;
+        transform: rotate(-30deg);
+      }
+    }
+    & .go-left {
+      transform: translateX(-150%) rotate(-30deg) !important;
+    }
+    
+    & .go-right {
+      transform: translateX(150%) rotate(30deg) !important;
+    }
+    
+    & .go-left, .go-right {
+      transition: transform .3s ease, rotate .3s ease;
+    }
+    
+    & .reset {
+      transition: transform .3s ease;
+      transform: translateX(0) !important;
+    }
+    
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-  & h2 {
-    color: white;
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: end;
-    width: 100%;
-    padding: 16px;
-    z-index: 3;
-    background: linear-gradient(0deg, #00000088 20%, transparent 40%);
-  }
+    & h2 {
+      color: white;
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: end;
+      width: 100%;
+      padding: 16px;
+      z-index: 3;
+      background: linear-gradient(0deg, #00000088 20%, transparent 40%);
+    }
+
 
   & span {
     margin-left: 6px;
